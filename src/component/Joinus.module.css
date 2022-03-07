@@ -1,0 +1,55 @@
+.Main{
+    background-color: #F2F3F7;
+    /* margin: 0 auto; */
+}
+.Flex{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /* padding: 150px 100px; */
+    /* width: 100%; */
+}
+.Comment{
+    color: #9E9E9E ;
+    float:left;
+}
+.SignUp{
+    float:left;
+}
+.Image{
+    float: left;
+    width: 80%;
+    height: 80%;
+}
+.Form{
+    border: 2px solid black !important;
+    border-radius: 1%;
+    padding: 15px;
+}
+.Button{
+    background-color: #6C7AF5 !important;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+.Button:hover{
+    opacity: 0.9;
+    /* transform: scale(0.99); */
+    /* transition-duration: 0.2s; */
+    background-color: #6C7AF5;
+}
+.Link{
+    color:#9437AC !important;
+    text-decoration: none !important;
+}
+.CheckBoxLabel{
+    margin-right: 5px !important;
+}
+/*
+버튼 : #6C7AF5
+링크 : #9437AC
+폰트 : #9E9E9E
+바탕 : #F2F3F7
+*/
