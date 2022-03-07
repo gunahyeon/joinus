@@ -1,9 +1,14 @@
 import React from 'react';
 import {Grid, Typography, TextField, FormControlLabel, Checkbox, Container, Box, Button, Avatar, Link} from '@mui/material';
 import styles from "./Joinus.module.css";
+import { makeStyles } from "@material-ui/core/styles";
 const Joinus = () =>{
+    // const bodyStyle = makeStyles({
+    //     body:{
+    //         backgroundColor:"#F2F3F7",
+    //     }
+    // });
     return (
-        <div component="html" varient="html" className={styles.Main}>
         <div className={styles.Flex}>
             <Container>
                 <Typography className={styles.SignUp} component="h1" variant="h5">
@@ -92,7 +97,6 @@ const Joinus = () =>{
                 </Grid>
             </Box>
             </Container>
-        </div>
         </div>
     );
 }

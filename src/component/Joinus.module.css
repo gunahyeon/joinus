@@ -1,7 +1,7 @@
-.Main{
-    background-color: #F2F3F7;
-    /* margin: 0 auto; */
+body{
+    background-color:"#F2F3F7" !important;
 }
+
 .Flex{
     display: flex;
     justify-content: space-between;
