@@ -58,9 +58,12 @@ const joinusPageStyle = {
 		minHeight: "100vh",
 		margin: "auto",
 		alignItems: "center",
-		position: "relative",
 		height: "auto",
 		backgroundColor: "#F2F3F7 !important",
+		"@media (max-width: 992px)": {
+			flexDirection:"column",
+			justifyContent:"center"
+		},
 	},
 	firstContainer: {
 		"& img": {
@@ -72,10 +75,19 @@ const joinusPageStyle = {
 	Comment: {
 		color: "#9E9E9E",
 		fontSize: "25px",
+		"@media (max-width: 992px)": {
+			fontSize:"15px",
+		},
 	},
 	SignUp: {
 		fontSize: "45px",
 		fontWeight: "700",
+		"@media (max-width: 992px)": {
+			fontSize:"35px",
+		},
+		"@media (max-width: 672px)": {
+			fontSize:"25px",
+		},
 	},
 	Image: {
 		float: "left",
@@ -89,11 +101,13 @@ const joinusPageStyle = {
 	},
 	signUpButton: {
 		backgroundColor: "#6C7AF5",
-		marginTop: "24px",
-		marginBottom: "16px",
+		marginTop:"15px",
 		"&:hover": {
 			opacity: "0.9",
 			backgroundColor: "#6C7AF5",
+		},
+		"@media (max-width: 992px)": {
+			marginTop:"24px",
 		},
 		color: "#ffffff",
 		fontSize: "16px",
@@ -101,10 +115,25 @@ const joinusPageStyle = {
 	Link: {
 		color: "#9437AC",
 		textDecoration: "none !important",
+		float:"left",
+		marginTop:"7px",
+		height:"42px",
 	},
 	CheckBoxLabel: {
 		marginRight: "5px !important",
+		float:"left",
 	},
+	Errors:{
+		color:"red",
+		fontSize:"12px",
+		textAlign:"left",
+		position:"absolute",
+		top:"70px",
+	},
+	Grid:{
+		height:"85px",
+		position:"relative",
+	}
 };
 
 export default joinusPageStyle;
