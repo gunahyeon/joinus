@@ -10,9 +10,11 @@ import {
 	Button,
 	Link,
     InputAdornment,
+    Alert
 } from "@mui/material";
-import SearchIcon from "@mui/icons-material";
 import classes from "./joinusPageStyle.js";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import {useFormik} from "formik";
 import * as yup from 'yup'; //왜 * as을 해야하는거지..
 import { joinus } from "../store/joinus";
@@ -28,6 +30,11 @@ const Joinus = () => {
             type:'password',
             visible:false,
         });
+        const [confirmPasswordType, setConfirmPasswordType] = React.useState({
+            type:'password',
+            visible:false,
+        });
+
         const handlePasswordType = (e) => {
             setPasswordType(()=>{
                 if (!passwordType.visible) {
@@ -36,6 +43,26 @@ const Joinus = () => {
                 return { type: 'password', visible: false };
             })
         }
+        const handleConfirmPasswordType = (e) => {
+            setConfirmPasswordType(()=>{
+                if (!confirmPasswordType.visible) {
+                    return { type: 'text', visible: true };
+                }
+                return { type: 'password', visible: false };
+            })
+        } //한개로 합치고 싶다..
+        // const [passwordType1, setPasswordType1] = React.useState({
+        //     type:'password',
+        //     visible:false,
+        // });
+        // const handlePasswordType1 = (e) => {
+        //     setPasswordType1(()=>{
+        //         if (!passwordType1.visible) {
+        //             return { type: 'text', visible: true };
+        //         }
+        //         return { type: 'password', visible: false };
+        //     })
+        // }
             
         const formik = useFormik({
         initialValues: {
@@ -69,13 +96,29 @@ const Joinus = () => {
             .oneOf([true], "* The terms and conditions must be accepted.")
         }),
         onSubmit: values => {
-            console.log(JSON.stringify(values, null, 2));
+            alert(JSON.stringify(values, null, 2));
+            // successAlert(values);
             dispatch(joinus(values));
+            // joinWelcome(values);
             // return(<div>{values}</div>)
             // JSON.stringify(values, null, 2)
             // console.log(alert);
         },
         });
+        // const joinWelcome = (values) => {
+        //     // alert(JSON.stringify(values, null, 2));
+        //     return (<div>
+        //     <Alert
+        //       action={
+        //         <Button color="inherit" size="small">
+        //           UNDO
+        //         </Button>
+        //       }
+        //     >
+        //       {JSON.stringify(values, null, 2)}
+        //     </Alert>
+        //     </div>);
+        // }
 	return (
 		<Box sx={classes.bodyDiv}>
 			<Container sx={classes.firstContainer}>
@@ -142,13 +185,13 @@ const Joinus = () => {
 						</Grid>
 						<Grid sx={classes.Grid} item xs={6} sm={6}>
 							<TextField
-                            InputProps={{
-                                startAdornment: (
-                                  <InputAdornment position="start">
-                                    <SearchIcon />
-                                  </InputAdornment>
-                                ),
-                              }}
+                                InputProps={{
+                                    endAdornment: (
+                                    <InputAdornment position="end" onClick={handlePasswordType}>
+                                        {passwordType.visible? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                    </InputAdornment>
+                                    ),
+                                }}
 								fullWidth
 								name="password"
 								label="Password"
@@ -163,10 +206,17 @@ const Joinus = () => {
 						</Grid>
 						<Grid sx={classes.Grid} item xs={6} sm={6}>
 							<TextField
+                                InputProps={{
+                                    endAdornment: (
+                                    <InputAdornment position="end" onClick={handleConfirmPasswordType}>
+                                        {confirmPasswordType.visible? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                    </InputAdornment>
+                                    ),
+                                }}                            
 								fullWidth
 								name="confirmPassword"
 								label="Confirm Password"
-								type={passwordType.type}
+								type={confirmPasswordType.type}
 								id="confirmPassword"
                                 autoComplete='confirm-password'
                                 {...formik.getFieldProps('confirmPassword')}
