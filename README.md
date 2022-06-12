@@ -1,1 +1,1 @@
-mui, formik을 활용한 joinus project
+mui, formik을 적용한 joinus project
