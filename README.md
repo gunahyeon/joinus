@@ -1,6 +1,8 @@
 # 개발스택
-* react
-* react-redux
-* redux-toolkit
-* formik
+* React
+* React-redux
+* React-persist
+* Redux
+* Redux-toolkit
+* Axios
 * MUI V5
