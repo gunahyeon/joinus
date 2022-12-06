@@ -4,5 +4,6 @@
 * React-persist
 * Redux
 * Redux-toolkit
+* Formik
 * Axios
 * MUI V5
