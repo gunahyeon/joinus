@@ -131,7 +131,7 @@ const Joinus = () => {
 				<Box component="img" src={"./image.png"} sx={classes.Image} />
 			</Container>
 			<Container sx={classes.secondContainer}>
-				<Box component="form" onSubmit={formik.handleSubmit} sx={classes.Form} sx={{ mt: 3 }}>
+				<Box component="form" onSubmit={formik.handleSubmit} sx={classes.Form}>
 					<Grid container spacing={2}>
 						<Grid sx={classes.Grid} item xs={6} sm={6}>
 							<TextField
